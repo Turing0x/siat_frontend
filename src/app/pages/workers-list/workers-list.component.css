@@ -1,0 +1,124 @@
+.workers-list-container {
+  padding: 20px;
+}
+
+.workers-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.create-worker-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.create-worker-btn:hover {
+  background-color: #45a049;
+}
+
+.workers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.workers-table th, .workers-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.workers-table th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+.workers-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.workers-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.action-buttons button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.action-buttons button:nth-child(1) {
+  background-color: #3498db;
+  color: white;
+}
+
+.action-buttons button:nth-child(2) {
+  background-color: #f39c12;
+  color: white;
+}
+
+.action-buttons button:nth-child(3) {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.action-buttons button:hover {
+  opacity: 0.8;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal[style*="display: block"] {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,41 @@
+<form [formGroup]="workerForm" (ngSubmit)="onSubmit()">
+  <h2>Crear Nuevo Trabajador</h2>
+
+  <div>
+    <label for="name">Nombre:</label>
+    <input formControlName="name" type="text" id="name" name="name" required>
+    <span *ngIf="isValidField('name')">Nombre es requerido</span>
+  </div>
+
+  <div>
+    <label for="phone">Teléfono:</label>
+    <input formControlName="phone" type="tel" id="phone" name="phone" required>
+    <span *ngIf="isValidField('phone')">Teléfono es requerido</span>
+  </div>
+
+  <div>
+    <label for="email">Correo electrónico:</label>
+    <input formControlName="email" type="email" id="email" name="email" required>
+    <span *ngIf="isValidField('email')">Correo electrónico es requerido</span>
+  </div>
+
+  <div>
+    <label for="entity">Entidad:</label>
+    <input formControlName="entity" type="text" id="entity" name="entity" required>
+    <span *ngIf="isValidField('entity')">Entidad es requerida</span>
+  </div>
+
+  <div>
+    <label for="department">Departamento:</label>
+    <input formControlName="department" type="text" id="department" name="department" required>
+    <span *ngIf="isValidField('department')">Departamento es requerido</span>
+  </div>
+
+  <div>
+    <label for="charge">Cargo:</label>
+    <input formControlName="charge" type="text" id="charge" name="charge" required>
+    <span *ngIf="isValidField('charge')">Cargo es requerido</span>
+  </div>
+
+  <button type="submit">Crear Trabajador</button>
+</form>

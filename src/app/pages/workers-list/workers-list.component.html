@@ -1,0 +1,38 @@
+<section class="workers-list-container">
+  <span class="workers-list-header">
+    <h2>Lista de Trabajadores</h2>
+    <button class="create-worker-btn" (click)="openCreateWorkerModal()">Crear Nuevo Trabajador</button>
+
+    <div class="modal" *ngIf="showCreateWorkerModal">
+      <div class="modal-content">
+        <span class="close" (click)="closeCreateWorkerModal()">&times;</span>
+        <create-worker></create-worker>
+      </div>
+    </div>
+  </span>
+
+  <table class="workers-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Correo Electrónico</th>
+        <th>Entidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let worker of workers">
+        <td>{{ worker.name }}</td>
+        <td>{{ worker.phone }}</td>
+        <td>{{ worker.email }}</td>
+        <td>{{ worker.entity }}</td>
+        <td class="action-buttons">
+          <button>Detalles</button>
+          <button (click)="updateWorker(worker)">Editar</button>
+          <button (click)="deleteWorker(worker.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
