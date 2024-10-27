@@ -1,1 +1,47 @@
-<p>electricity-consumption works!</p>,
+<div class="container">
+
+  <h2>Listado de Consumo de Electricidad</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Agencia ID</th>
+        <th>Contador ID</th>
+        <th>Nombre Contador</th>
+        <th>Fecha</th>
+        <th>Madrugada</th>
+        <th>Día</th>
+        <th>Pico</th>
+        <th>Reactivo</th>
+        <th>DMax</th>
+        <th>Pico Diurno</th>
+        <th>Factor</th>
+        <th>Consumo Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let consumption of consumptions">
+        <td>{{ consumption.ID }}</td>
+        <td>{{ consumption.IdAgencia }}</td>
+        <td>{{ consumption.IdMetroContador }}</td>
+        <td>{{ consumption.NombreContador }}</td>
+        <td>{{ consumption.Fecha | date }}</td>
+        <td>{{ consumption.Madrugada }}</td>
+        <td>{{ consumption.Dia }}</td>
+        <td>{{ consumption.Pico }}</td>
+        <td>{{ consumption.Reactivo }}</td>
+        <td>{{ consumption.DMax }}</td>
+        <td>{{ consumption.PicoDiurno }}</td>
+        <td>{{ consumption.Factor }}</td>
+        <td>{{ consumption.ConsumoTotal }}</td>
+        <td>
+          <button class="btn btn-info btn-sm mr-1" (click)="viewConsumption(consumption.ID)">Ver</button>
+          <button class="btn btn-warning btn-sm mr-1" (click)="editConsumption(consumption.ID)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteConsumption(consumption.ID)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
