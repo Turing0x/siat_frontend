@@ -53,4 +53,8 @@ export class WorkerService {
     return this.http.delete<TWorker>(`${this.apiUrl}/${id}`);
   }
 
+  getAditionalData(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/aditional`);
+  }
+
 }

@@ -1,7 +1,7 @@
 import { ValidatorService } from '@/services/validators.service';
 import { WorkerService } from '@/services/worker.service';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 
@@ -21,12 +21,24 @@ import { RouterModule, Router } from '@angular/router';
 export class CreateWorkerComponent implements OnInit {
 
   private fb = inject(FormBuilder);
+  private cd = inject(ChangeDetectorRef);
 
   private validatorService = inject(ValidatorService);
   private workerService = inject(WorkerService);
+  
   public workerForm!: FormGroup;
 
+  public entities: { ID: string, NOMBRE: string }[] = [];
+  public departments: { ID: string, NOMBRE: string }[] = [];
+
   ngOnInit(): void {
+
+    this.workerService.getAditionalData().subscribe(data => {
+      this.entities = data[0];
+      this.departments = data[1];
+      this.cd.markForCheck();
+    });
+
     this.workerForm = this.fb.group({
       name: new FormControl('Raul Garcia', Validators.required),
       phone: new FormControl('+5491134567890', Validators.required),

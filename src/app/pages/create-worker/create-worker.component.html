@@ -21,13 +21,17 @@
 
   <div>
     <label for="entity">Entidad:</label>
-    <input formControlName="entity" type="text" id="entity" name="entity" required>
+    <select formControlName="entity" id="entity" name="entity" required>
+      <option *ngFor="let entity of entities" [value]="entity.ID">{{ entity.NOMBRE }}</option>
+    </select>
     <span *ngIf="isValidField('entity')">Entidad es requerida</span>
   </div>
 
   <div>
     <label for="department">Departamento:</label>
-    <input formControlName="department" type="text" id="department" name="department" required>
+    <select formControlName="department" id="department" name="department" required>
+      <option *ngFor="let department of departments" [value]="department.ID">{{ department.NOMBRE }}</option>
+    </select>
     <span *ngIf="isValidField('department')">Departamento es requerido</span>
   </div>
 
